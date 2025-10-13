@@ -1,17 +1,19 @@
+// Program.cs
 namespace FinalProgram
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static ProductoService ProductoService { get; private set; }
+
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Configurar el servicio con el repositorio en memoria
+            var repository = new ProductoRepositoryMemory();
+            ProductoService = new ProductoService(repository);
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmBase());
+            Application.Run(new FrmInicio());
         }
     }
 }
