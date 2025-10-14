@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace FinalProgram
 {
     public partial class FrmBase : Form

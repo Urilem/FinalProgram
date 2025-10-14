@@ -10,13 +10,11 @@ namespace FinalProgram
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            
-            // Inicializar el servicio
-            IProductoRepository repository = new ProductoRepositoryMemory();
+            // Configurar el servicio con el repositorio en memoria
+            var repository = new ProductoRepositoryMemory();
             ProductoService = new ProductoService(repository);
-            
+
+            ApplicationConfiguration.Initialize();
             Application.Run(new FrmInicio());
         }
     }

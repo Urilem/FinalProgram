@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
 
 namespace FinalProgram
@@ -15,6 +8,16 @@ namespace FinalProgram
         public FrmListar()
         {
             InitializeComponent();
+            btnVolver.Click += (s, e) => this.Close();
+            
+            // Cargar productos en el grid
+            CargarProductos();
+        }
+
+        private void CargarProductos()
+        {
+            var productos = Program.ProductoService.ObtenerTodos();
+            gridProductos.DataSource = productos;
         }
     }
 }

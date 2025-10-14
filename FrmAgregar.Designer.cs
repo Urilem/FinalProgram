@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+using System.Drawing;
 ﻿namespace FinalProgram
 {
     partial class FrmAgregar

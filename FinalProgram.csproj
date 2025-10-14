@@ -1,11 +1,63 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>FinalProgram</RootNamespace>
+    <AssemblyName>FinalProgram</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Producto.cs" />
+    <Compile Include="IProductoRepository.cs" />
+    <Compile Include="ProductoRepositoryMemory.cs" />
+    <Compile Include="ProductoService.cs" />
+    <Compile Include="DetalleVenta.cs" />
+    <Compile Include="FrmBase.cs" />
+    <Compile Include="FrmBase.Designer.cs" />
+    <Compile Include="FrmInicio.cs" />
+    <Compile Include="FrmInicio.Designer.cs" />
+    <Compile Include="FrmAgregar.cs" />
+    <Compile Include="FrmAgregar.Designer.cs" />
+    <Compile Include="FrmListar.cs" />
+    <Compile Include="FrmListar.Designer.cs" />
+    <Compile Include="FrmModificar.cs" />
+    <Compile Include="FrmModificar.Designer.cs" />
+    <Compile Include="FrmVender.cs" />
+    <Compile Include="FrmVender.Designer.cs" />
+  </ItemGroup>
+
+  <!-- Paquete Newtonsoft.Json agregado correctamente dentro del Project -->
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
