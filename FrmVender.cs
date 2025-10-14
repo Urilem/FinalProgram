@@ -186,6 +186,8 @@ namespace FinalProgram
                     return;
                 }
 
+                decimal totalVenta = _detallesVenta.Sum(d => d.Subtotal);
+
                 var resultado = MessageBox.Show(
                     $"¿Confirmar venta por un total de {_detallesVenta.Sum(d => d.Subtotal):C2}?",
                     "Confirmar Venta",
@@ -199,11 +201,13 @@ namespace FinalProgram
                         Program.ProductoService.VenderProducto(detalle.Producto.Id, detalle.Cantidad);
                     }
 
-                    MessageBox.Show(
-                        $"¡Venta realizada exitosamente!\nTotal: {_detallesVenta.Sum(d => d.Subtotal):C2}",
-                        "Venta Exitosa",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    using (var frmTicket = new FrmTicket(_detallesVenta, totalVenta))
+                    {
+                      frmTicket.ShowDialog();
+                    }
+
+                    MessageBox.Show("¡Venta realizada con éxito!", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     _detallesVenta.Clear();
                     ActualizarTablaVenta();

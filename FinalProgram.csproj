@@ -52,6 +52,8 @@
     <Compile Include="FrmModificar.Designer.cs" />
     <Compile Include="FrmVender.cs" />
     <Compile Include="FrmVender.Designer.cs" />
+    <Compile Include="FrmTicket.cs" />
+    <Compile Include="FrmTicket.Designer.cs" />
   </ItemGroup>
 
   <!-- Paquete Newtonsoft.Json agregado correctamente dentro del Project -->
