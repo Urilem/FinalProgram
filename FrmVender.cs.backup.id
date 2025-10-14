@@ -71,22 +71,16 @@ namespace FinalProgram
                 var producto = Program.ProductoService.ObtenerPorId(id);
                 if (producto != null)
                 {
-                    lblNombreProducto.Text = producto.Nombre;  // CORREGIDO
+                    txtProducto.Text = producto.Nombre;
                     lblPrecio.Text = producto.Precio.ToString("C2");
                     CalcularPrecioFinal();
                 }
                 else
                 {
-                    lblNombreProducto.Text = "Producto no encontrado";  // CORREGIDO
+                    txtProducto.Text = "Producto no encontrado";
                     lblPrecio.Text = "$0.00";
                     label1.Text = "$0.00";
                 }
-            }
-            else
-            {
-                lblNombreProducto.Text = "Ingrese ID para buscar producto";  // CORREGIDO
-                lblPrecio.Text = "$0.00";
-                label1.Text = "$0.00";
             }
         }
 
@@ -156,7 +150,7 @@ namespace FinalProgram
                 CalcularTotalGeneral();
                 
                 txtid.Clear();
-                lblNombreProducto.Text = "Ingrese ID para buscar producto";  // CORREGIDO
+                txtProducto.Clear();
                 txtCantidad.Clear();
                 lblPrecio.Text = "$0.00";
                 label1.Text = "$0.00";
@@ -193,9 +187,9 @@ namespace FinalProgram
                 }
 
                 decimal totalVenta = _detallesVenta.Sum(d => d.Subtotal);
-                
+
                 var resultado = MessageBox.Show(
-                    $"¿Confirmar venta por un total de {totalVenta:C2}?",
+                    $"¿Confirmar venta por un total de {_detallesVenta.Sum(d => d.Subtotal):C2}?",
                     "Confirmar Venta",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -207,21 +201,20 @@ namespace FinalProgram
                         Program.ProductoService.VenderProducto(detalle.Producto.Id, detalle.Cantidad);
                     }
 
-                    // Mostrar ticket
                     using (var frmTicket = new FrmTicket(_detallesVenta, totalVenta))
                     {
-                        frmTicket.ShowDialog();
+                      frmTicket.ShowDialog();
                     }
 
-                    MessageBox.Show("¡Venta realizada exitosamente!", "Éxito", 
-                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("¡Venta realizada con éxito!", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     _detallesVenta.Clear();
                     ActualizarTablaVenta();
                     CalcularTotalGeneral();
                     
                     txtid.Clear();
-                    lblNombreProducto.Text = "Ingrese ID para buscar producto";  // CORREGIDO
+                    txtProducto.Clear();
                     txtCantidad.Clear();
                     lblPrecio.Text = "$0.00";
                     label1.Text = "$0.00";
@@ -229,8 +222,7 @@ namespace FinalProgram
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al procesar la venta: {ex.Message}", "Error", 
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al procesar la venta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -254,8 +246,6 @@ namespace FinalProgram
         }
 
         private void label1_Click(object sender, EventArgs e) { }
-
-        // CORREGIDO: Cambiar el nombre del método para que coincida con el diseñador
-        private void tblProductos_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
     }
 }
