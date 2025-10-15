@@ -35,25 +35,25 @@
 
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Producto.cs" />
-    <Compile Include="IProductoRepository.cs" />
-    <Compile Include="ProductoRepositoryMemory.cs" />
-    <Compile Include="ProductoService.cs" />
-    <Compile Include="DetalleVenta.cs" />
-    <Compile Include="FrmBase.cs" />
-    <Compile Include="FrmBase.Designer.cs" />
-    <Compile Include="FrmInicio.cs" />
-    <Compile Include="FrmInicio.Designer.cs" />
-    <Compile Include="FrmAgregar.cs" />
-    <Compile Include="FrmAgregar.Designer.cs" />
-    <Compile Include="FrmListar.cs" />
-    <Compile Include="FrmListar.Designer.cs" />
-    <Compile Include="FrmModificar.cs" />
-    <Compile Include="FrmModificar.Designer.cs" />
-    <Compile Include="FrmVender.cs" />
-    <Compile Include="FrmVender.Designer.cs" />
-    <Compile Include="FrmTicket.cs" />
-    <Compile Include="FrmTicket.Designer.cs" />
+    <Compile Include="producto/Producto.cs" />
+    <Compile Include="producto/IProductoRepository.cs" />
+    <Compile Include="producto/ProductoRepositoryMemory.cs" />
+    <Compile Include="producto/ProductoService.cs" />
+    <Compile Include="venta/DetalleVenta.cs" />
+    <Compile Include="forms/FrmBase.cs" />
+    <Compile Include="forms/FrmBase.Designer.cs" />
+    <Compile Include="forms/FrmInicio.cs" />
+    <Compile Include="forms/FrmInicio.Designer.cs" />
+    <Compile Include="forms/FrmAgregar.cs" />
+    <Compile Include="forms/FrmAgregar.Designer.cs" />
+    <Compile Include="forms/FrmListar.cs" />
+    <Compile Include="forms/FrmListar.Designer.cs" />
+    <Compile Include="forms/FrmModificar.cs" />
+    <Compile Include="forms/FrmModificar.Designer.cs" />
+    <Compile Include="forms/FrmVender.cs" />
+    <Compile Include="forms/FrmVender.Designer.cs" />
+    <Compile Include="forms/FrmTicket.cs" />
+    <Compile Include="forms/FrmTicket.Designer.cs" />
   </ItemGroup>
 
   <!-- Paquete Newtonsoft.Json agregado correctamente dentro del Project -->
