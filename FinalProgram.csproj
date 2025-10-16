@@ -6,6 +6,7 @@
     <RootNamespace>FinalProgram</RootNamespace>
     <AssemblyName>FinalProgram</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,6 +40,7 @@
     <Compile Include="producto/IProductoRepository.cs" />
     <Compile Include="producto/ProductoRepositoryMemory.cs" />
     <Compile Include="producto/ProductoService.cs" />
+    <Compile Include="producto/ProductoRepositorySQL.cs" />
     <Compile Include="venta/DetalleVenta.cs" />
     <Compile Include="forms/FrmBase.cs" />
     <Compile Include="forms/FrmBase.Designer.cs" />
@@ -56,9 +58,14 @@
     <Compile Include="forms/FrmTicket.Designer.cs" />
   </ItemGroup>
 
-  <!-- Paquete Newtonsoft.Json agregado correctamente dentro del Project -->
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
 
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
