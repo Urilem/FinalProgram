@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "🍕 Compilando Casa de Comida Casera..."
+echo "Compilando Casa de Comida Casera..."
 echo "======================================"
 
 # Verificar y corregir Program.cs si es necesario
@@ -9,11 +9,9 @@ if grep -q "ApplicationConfiguration.Initialize()" Program.cs; then
     echo "✅ Program.cs corregido"
 fi
 
-# Limpiar builds anteriores
 echo "🧹 Limpiando builds anteriores..."
 rm -rf bin/ obj/
 
-# Compilar con MSBuild
 echo "📦 Compilando proyecto..."
 msbuild FinalProgram.csproj /p:Configuration=Debug /verbosity:minimal
 
