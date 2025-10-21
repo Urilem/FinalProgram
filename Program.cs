@@ -51,7 +51,6 @@ namespace FinalProgram
         repositoryType = "Memory";
       }
 
-      // Usando switch tradicional compatible con C# 7.3
       switch (repositoryType)
       {
           case "SQL":
