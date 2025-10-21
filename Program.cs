@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace FinalProgram
@@ -21,8 +22,34 @@ namespace FinalProgram
 
     private static IProductoRepository CreateRepository()
     {
-      // Cambiar a "SQL" para usar base de datos
-      string repositoryType = "Memory"; // o "SQL"
+      string repositoryType = "Memory"; // Valor por defecto
+
+      try
+      {
+        // Leer el archivo config.txt
+        if (File.Exists("config.txt"))
+        {
+          string[] lines = File.ReadAllLines("config.txt");
+          foreach (string line in lines)
+          {
+            // Ignorar comentarios y líneas vacías
+            if (line.StartsWith("#") || string.IsNullOrWhiteSpace(line))
+              continue;
+
+            // Buscar la línea que comienza con "RepositoryType="
+            if (line.StartsWith("RepositoryType="))
+            {
+              repositoryType = line.Substring("RepositoryType=".Length).Trim();
+              break;
+            }
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show($"Error leyendo config.txt: {ex.Message}. Usando repositorio en memoria por defecto.");
+        repositoryType = "Memory";
+      }
 
       // Usando switch tradicional compatible con C# 7.3
       switch (repositoryType)
