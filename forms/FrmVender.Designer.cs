@@ -41,7 +41,7 @@ namespace FinalProgram
             this.lblProducto = new Label();
             this.lblid = new Label();
             this.lblPrecioU = new Label();
-            this.lblNombreProducto = new Label();  // Cambiado de txtProducto
+            this.lblNombreProducto = new Label();
             this.txtid = new TextBox();
             this.lblPrecio = new Label();
             this.lblCantidad = new Label();
@@ -95,17 +95,17 @@ namespace FinalProgram
             this.lblPrecioU.TabIndex = 3;
             this.lblPrecioU.Text = "Precio unitario:";
 
-            // lblNombreProducto (CAMBIO PRINCIPAL)
+            // lblNombreProducto
             this.lblNombreProducto.AutoSize = true;
             this.lblNombreProducto.Font = new Font("Segoe UI", 10F);
             this.lblNombreProducto.Location = new Point(164, 80);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new Size(196, 19);
+            this.lblNombreProducto.Padding = new Padding(3);
             // this.lblNombreProducto.TabIndex = 4;
             // this.lblNombreProducto.Text = "Ingrese ID para buscar producto";
             // this.lblNombreProducto.BorderStyle = BorderStyle.FixedSingle;
             // this.lblNombreProducto.BackColor = Color.White;
-            this.lblNombreProducto.Padding = new Padding(3);
 
             // txtid
             this.txtid.Location = new Point(164, 135);
@@ -158,9 +158,10 @@ namespace FinalProgram
             // tblProductos
             this.tblProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblProductos.Columns.AddRange(new DataGridViewColumn[] { this.Producto, this.Cantidad, this.Subtotal });
-            this.tblProductos.Location = new Point(29, 288);
+            this.tblProductos.Location = new Point(29, 350);
             this.tblProductos.Name = "tblProductos";
-            this.tblProductos.Size = new Size(344, 150);
+            this.tblProductos.Size = new Size(900, 250);
+            this.tblProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //agregado
             this.tblProductos.TabIndex = 11;
             this.tblProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblProductos_CellContentClick);
             // Producto
@@ -179,9 +180,9 @@ namespace FinalProgram
             this.Subtotal.ReadOnly = true;
 
             // btnCancelar
-            this.btnCancelar.BackColor = Color.Transparent;
+            this.btnCancelar.Ba
             this.btnCancelar.Font = new Font("Segoe UI", 15F);
-            this.btnCancelar.Location = new Point(637, 395);
+            this.btnCancelar.Location = new Point(750, 620);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new Size(118, 43);
             this.btnCancelar.TabIndex = 12;
@@ -189,7 +190,7 @@ namespace FinalProgram
 
             // btnVender
             this.btnVender.Font = new Font("Segoe UI", 15F);
-            this.btnVender.Location = new Point(498, 395);
+            this.btnVender.Location = new Point(600, 620);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new Size(118, 43);
             this.btnVender.TabIndex = 13;
@@ -206,7 +207,7 @@ namespace FinalProgram
             this.AutoScaleDimensions = new SizeF(7F, 15F);
             this.AutoScaleMode = AutoScaleMode.Font;
             this.BackColor = Color.FromArgb(128, 255, 255);
-            this.ClientSize = new Size(800, 450);
+            this.ClientSize = new Size(1000, 700);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.btnCancelar);
