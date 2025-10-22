@@ -1,3 +1,0 @@
-# RepositoryType=Memory
-# Cambiar a SQL para usar base de datos
-RepositoryType=SQL

@@ -38,7 +38,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="producto/Producto.cs" />
     <Compile Include="producto/IProductoRepository.cs" />
-    <Compile Include="producto/ProductoRepositoryMemory.cs" />
     <Compile Include="producto/ProductoService.cs" />
     <Compile Include="producto/ProductoRepositorySQL.cs" />
     <Compile Include="venta/DetalleVenta.cs" />
@@ -59,7 +58,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
   </ItemGroup>
