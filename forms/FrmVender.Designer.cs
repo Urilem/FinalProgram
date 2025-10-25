@@ -180,7 +180,6 @@ namespace FinalProgram
             this.Subtotal.ReadOnly = true;
 
             // btnCancelar
-            this.btnCancelar.Ba
             this.btnCancelar.Font = new Font("Segoe UI", 15F);
             this.btnCancelar.Location = new Point(750, 620);
             this.btnCancelar.Name = "btnCancelar";
