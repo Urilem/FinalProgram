@@ -164,6 +164,7 @@ namespace FinalProgram
             this.tblProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //agregado
             this.tblProductos.TabIndex = 11;
             this.tblProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblProductos_CellContentClick);
+
             // Producto
             this.Producto.HeaderText = "Producto";
             this.Producto.Name = "Producto";

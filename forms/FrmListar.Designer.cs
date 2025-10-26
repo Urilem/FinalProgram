@@ -30,6 +30,7 @@ using System.Drawing;
         /// </summary>
         private void InitializeComponent()
         {
+
             gridProductos = new DataGridView();
             lblListar = new Label();
             btnVolver = new Button();
@@ -43,6 +44,7 @@ using System.Drawing;
             gridProductos.Name = "gridProductos";
             gridProductos.Size = new Size(776, 304);
             gridProductos.TabIndex = 0;
+            gridProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             // 
             // lblListar
             // 
