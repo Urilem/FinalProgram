@@ -3,21 +3,20 @@ using System.Windows.Forms;
 
 namespace FinalProgram
 {
-    public partial class FrmListar : Form
+  public partial class FrmListar : Form
+  {
+    public FrmListar()
     {
-        public FrmListar()
-        {
-            InitializeComponent();
-            btnVolver.Click += (s, e) => this.Close();
-            
-            // Cargar productos en el grid
-            CargarProductos();
-        }
-
-        private void CargarProductos()
-        {
-            var productos = Program.ProductoService.ObtenerTodos();
-            gridProductos.DataSource = productos;
-        }
+      InitializeComponent();
+      btnVolver.Click += (s, e) => this.Close();
+      
+      CargarProductos();
     }
+
+    private void CargarProductos()
+    {
+      var productos = Program.ProductoService.ObtenerTodos();
+      gridProductos.DataSource = productos;
+    }
+  }
 }
