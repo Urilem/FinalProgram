@@ -41,8 +41,6 @@
     <Compile Include="producto/ProductoService.cs" />
     <Compile Include="producto/ProductoRepositorySQL.cs" />
     <Compile Include="venta/DetalleVenta.cs" />
-    <Compile Include="forms/FrmBase.cs" />
-    <Compile Include="forms/FrmBase.Designer.cs" />
     <Compile Include="forms/FrmInicio.cs" />
     <Compile Include="forms/FrmInicio.Designer.cs" />
     <Compile Include="forms/FrmAgregar.cs" />
