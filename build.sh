@@ -1,9 +1,7 @@
 #!/bin/bash
-echo "Compilando Casa de Comida Casera..."
-echo "======================================"
+echo "Compilando Empanadas virtuales..."
 
 if grep -q "ApplicationConfiguration.Initialize()" Program.cs; then
-    echo "Corrigiendo Program.cs para .NET Framework..."
     sed -i 's/ApplicationConfiguration.Initialize();/Application.EnableVisualStyles();\n            Application.SetCompatibleTextRenderingDefault(false);/g' Program.cs
     echo "Program.cs corregido"
 fi
@@ -15,13 +13,15 @@ if ! docker ps > /dev/null 2>&1; then
     echo "Ejecuta: sudo systemctl start docker"
     exit 1
 fi
+
 check_sql_connection() {
     # Intentar ejecutar un comando simple en SQL Server
     docker exec sqlserver-dev /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$SA_PASSWORD" -Q "SELECT 1" > /dev/null 2>&1
     return $?
 }
-# Verificar si el contenedor de SQL Server está saludable
-if docker ps --format "table {{.Names}}\t{{.Status}}" | grep -q "sqlserver-dev.*healthy"; then
+
+# # Verificar si el contenedor de SQL Server está saludable
+if docker ps --format "table {{.Names}}\t{{.Status}}"; then
     echo "SQL Server está conectado y saludable"
 elif docker ps | grep -q "sqlserver-dev"; then
     echo "SQL Server está ejecutándose pero no saludable (puede estar iniciando)"
@@ -42,11 +42,6 @@ msbuild FinalProgram.csproj /p:Configuration=Debug /verbosity:minimal
 if [ $? -eq 0 ]; then
     echo ""
     echo "¡COMPILACIÓN EXITOSA!"
-    if [ "$REPOSITORY_TYPE" = "SQL" ]; then
-        echo "Conectado a Base de Datos SQL Server"
-    else
-        echo "Usando almacenamiento en Memoria"
-    fi
     echo ""
     echo "Para ejecutar: ./run.sh"
     echo ""
