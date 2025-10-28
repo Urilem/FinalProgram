@@ -36,8 +36,8 @@ namespace FinalProgram
 
     public void Agregar(Producto producto)
     {
-      var sql = @"INSERT INTO Productos (Nombre, Precio, Stock)
-                VALUES (@Nombre, @Precio, @Stock);
+      var sql = @"INSERT INTO Productos (Nombre, Categoria, Precio, Stock)
+                VALUES (@Nombre, @Precio, @Stock, @Disponible);
                 SELECT SCOPE_IDENTITY();";
 
       using (var connection = new SqlConnection(_connectionString))
