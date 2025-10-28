@@ -12,7 +12,6 @@ namespace FinalProgram
       _repository = repository;
     }
 
-    // Métodos que usarán los formularios
     public List<Producto> ObtenerTodos() => _repository.ObtenerTodos();
     public Producto ObtenerPorId(int id) => _repository.ObtenerPorId(id);
     
@@ -43,8 +42,6 @@ namespace FinalProgram
 
       _repository.Actualizar(producto);
     }
-
-    public void EliminarProducto(int id) => _repository.Eliminar(id);
 
     public void VenderProducto(int id, int cantidad)
     {
