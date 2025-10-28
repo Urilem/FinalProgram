@@ -32,11 +32,8 @@ else
     exit 1
 fi
 
-echo ""
-echo "Limpiando builds anteriores..."
 rm -rf bin/ obj/
 
-echo "Compilando proyecto..."
 msbuild FinalProgram.csproj /p:Configuration=Debug /verbosity:minimal
 
 if [ $? -eq 0 ]; then
