@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using FinalProgram.Modelos;
+using FinalProgram.Servicios;
 
 namespace FinalProgram
 {
   public partial class FrmVender : Form
   {
     private List<DetalleVenta> _detallesVenta = new List<DetalleVenta>();
-    
+
     public FrmVender()
     {
       InitializeComponent();
-      
+
       // Conectar eventos
       btnAgregar.Click += btnAgregar_Click;
       btnVender.Click += btnVender_Click;
       btnCancelar.Click += btnCancelar_Click;
       txtid.TextChanged += txtid_TextChanged;
       txtCantidad.TextChanged += txtCantidad_TextChanged;
-      
+
       // Configurar DataGridView
       ConfigurarDataGridView();
     }
@@ -30,7 +32,7 @@ namespace FinalProgram
       // Configurar columnas
       tblProductos.AutoGenerateColumns = false;
       tblProductos.Columns.Clear();
-      
+
       tblProductos.Columns.Add(new DataGridViewTextBoxColumn()
       {
         Name = "Producto",
@@ -38,7 +40,7 @@ namespace FinalProgram
         DataPropertyName = "NombreProducto",
         Width = 150
       });
-      
+
       tblProductos.Columns.Add(new DataGridViewTextBoxColumn()
       {
         Name = "Cantidad",
@@ -46,7 +48,7 @@ namespace FinalProgram
         DataPropertyName = "Cantidad",
         Width = 80
       });
-      
+
       tblProductos.Columns.Add(new DataGridViewTextBoxColumn()
       {
         Name = "PrecioUnitario",
@@ -54,7 +56,7 @@ namespace FinalProgram
         DataPropertyName = "PrecioUnitarioFormateado",
         Width = 100
       });
-      
+
       tblProductos.Columns.Add(new DataGridViewTextBoxColumn()
       {
         Name = "Subtotal",
@@ -154,13 +156,13 @@ namespace FinalProgram
 
         ActualizarTablaVenta();
         CalcularTotalGeneral();
-        
+
         txtid.Clear();
         lblNombreProducto.Text = "Ingrese ID para buscar producto";  // CORREGIDO
         txtCantidad.Clear();
         lblPrecio.Text = "$0.00";
         label1.Text = "$0.00";
-        
+
         txtid.Focus();
       }
       catch (Exception ex)
@@ -193,7 +195,7 @@ namespace FinalProgram
         }
 
         decimal totalVenta = _detallesVenta.Sum(d => d.Subtotal);
-        
+
         var resultado = MessageBox.Show(
           $"¿Confirmar venta por un total de {totalVenta:C2}?",
           "Confirmar Venta",
@@ -213,13 +215,13 @@ namespace FinalProgram
             frmTicket.ShowDialog();
           }
 
-          MessageBox.Show("¡Venta realizada exitosamente!", "Éxito", 
+          MessageBox.Show("¡Venta realizada exitosamente!", "Éxito",
                           MessageBoxButtons.OK, MessageBoxIcon.Information);
 
           _detallesVenta.Clear();
           ActualizarTablaVenta();
           CalcularTotalGeneral();
-          
+
           txtid.Clear();
           lblNombreProducto.Text = "Ingrese ID para buscar producto";  // CORREGIDO
           txtCantidad.Clear();
@@ -229,7 +231,7 @@ namespace FinalProgram
       }
       catch (Exception ex)
       {
-        MessageBox.Show($"Error al procesar la venta: {ex.Message}", "Error", 
+        MessageBox.Show($"Error al procesar la venta: {ex.Message}", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
       }
     }
@@ -250,7 +252,7 @@ namespace FinalProgram
 
     private void txtCantidad_TextChanged(object sender, EventArgs e)
     {
-        CalcularPrecioFinal();
+      CalcularPrecioFinal();
     }
 
     private void label1_Click(object sender, EventArgs e) { }

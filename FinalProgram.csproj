@@ -36,23 +36,46 @@
 
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="producto/Producto.cs" />
-    <Compile Include="producto/IProductoRepository.cs" />
-    <Compile Include="producto/ProductoService.cs" />
-    <Compile Include="producto/ProductoRepositorySQL.cs" />
-    <Compile Include="venta/DetalleVenta.cs" />
-    <Compile Include="forms/FrmInicio.cs" />
-    <Compile Include="forms/FrmInicio.Designer.cs" />
-    <Compile Include="forms/FrmAgregar.cs" />
-    <Compile Include="forms/FrmAgregar.Designer.cs" />
-    <Compile Include="forms/FrmListar.cs" />
-    <Compile Include="forms/FrmListar.Designer.cs" />
-    <Compile Include="forms/FrmModificar.cs" />
-    <Compile Include="forms/FrmModificar.Designer.cs" />
-    <Compile Include="forms/FrmVender.cs" />
-    <Compile Include="forms/FrmVender.Designer.cs" />
-    <Compile Include="forms/FrmTicket.cs" />
-    <Compile Include="forms/FrmTicket.Designer.cs" />
+    
+    <!-- Modelos -->
+    <Compile Include="Modelos\Producto.cs" />
+    <Compile Include="Modelos\Venta.cs" />
+    <Compile Include="Modelos\DetalleVenta.cs" />
+    
+    <!-- Acceso a Datos -->
+    <Compile Include="AccesoDatos\ConexionBD.cs" />
+    <Compile Include="AccesoDatos\IRepositorioProductos.cs" />
+    <Compile Include="AccesoDatos\RepositorioProductosSQL.cs" />
+    
+    <!-- Servicios -->
+    <Compile Include="Servicios\ServicioProductos.cs" />
+    <Compile Include="Servicios\ServicioVentas.cs" />
+    
+    <!-- Formularios -->
+    <Compile Include="Formularios\FrmInicio.cs" />
+    <Compile Include="Formularios\FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmAgregar.cs" />
+    <Compile Include="Formularios\FrmAgregar.Designer.cs">
+      <DependentUpon>FrmAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmListar.cs" />
+    <Compile Include="Formularios\FrmListar.Designer.cs">
+      <DependentUpon>FrmListar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmModificar.cs" />
+    <Compile Include="Formularios\FrmModificar.Designer.cs">
+      <DependentUpon>FrmModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmVender.cs" />
+    <Compile Include="Formularios\FrmVender.Designer.cs">
+      <DependentUpon>FrmVender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTicket.cs" />
+    <Compile Include="Formularios\FrmTicket.Designer.cs">
+      <DependentUpon>FrmTicket.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

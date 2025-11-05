@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FinalProgram.Modelos;
 
 namespace FinalProgram
 {
@@ -22,7 +23,7 @@ namespace FinalProgram
     private void MostrarTicket()
     {
       var sb = new StringBuilder();
-      
+
       // Encabezado del ticket
       sb.AppendLine("🍕 CASA DE COMIDA CASERA");
       sb.AppendLine("================================");
@@ -33,8 +34,8 @@ namespace FinalProgram
       // Detalles de productos
       foreach (var detalle in _detalles)
       {
-          sb.AppendLine($"{detalle.Producto.Nombre}");
-          sb.AppendLine($"  {detalle.Cantidad} x {detalle.PrecioUnitario:C2} = {detalle.Subtotal:C2}");
+        sb.AppendLine($"{detalle.Producto.Nombre}");
+        sb.AppendLine($"  {detalle.Cantidad} x {detalle.PrecioUnitario:C2} = {detalle.Subtotal:C2}");
       }
 
       sb.AppendLine();
@@ -50,7 +51,7 @@ namespace FinalProgram
     private void btnImprimir_Click(object sender, EventArgs e)
     {
       // Aquí puedes implementar impresión real
-      MessageBox.Show("¡Ticket listo para imprimir!", "Imprimir", 
+      MessageBox.Show("¡Ticket listo para imprimir!", "Imprimir",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 

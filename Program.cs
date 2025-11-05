@@ -1,12 +1,14 @@
 using System;
-using System.IO;
 using System.Windows.Forms;
+using FinalProgram.AccesoDatos;
+using FinalProgram.Servicios;
 
 namespace FinalProgram
 {
   internal static class Program
   {
-    public static ProductoService ProductoService { get; private set; }
+    public static ServicioProductos ServicioProductos { get; private set; }
+    public static ServicioVentas ServicioVentas { get; private set; }
 
     [STAThread]
     static void Main()
@@ -14,11 +16,12 @@ namespace FinalProgram
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 
-      // Instanciar directamente el repositorio SQL
-      IProductoRepository repository = new ProductoRepositorySQL();
-      ProductoService = new ProductoService(repository);
+      // Configurar los servicios
+      IRepositorioProductos repositorio = new RepositorioProductosSQL();
+      ServicioProductos = new ServicioProductos(repositorio);
+      ServicioVentas = new ServicioVentas(repositorio);
 
-      Application.Run(new FrmInicio());
+      Application.Run(new Formularios.FrmInicio());
     }
   }
 }
