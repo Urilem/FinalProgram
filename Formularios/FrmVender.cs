@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using FinalProgram.Modelos;
 using FinalProgram.Servicios;
 
-namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   public partial class FrmVender : Form
   {
@@ -70,7 +70,7 @@ namespace FinalProgram
     {
       if (int.TryParse(txtid.Text, out int id) && id > 0)
       {
-        var producto = Program.ProductoService.ObtenerPorId(id);
+        var producto = Program.ServicioProductos.ObtenerProductoPorId(id);
         if (producto != null)
         {
           lblNombreProducto.Text = producto.Nombre;  // CORREGIDO
@@ -124,7 +124,7 @@ namespace FinalProgram
           return;
         }
 
-        var producto = Program.ProductoService.ObtenerPorId(productoId);
+        var producto = Program.ServicioProductos.ObtenerProductoPorId(productoId);
         if (producto == null)
         {
           MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -206,7 +206,7 @@ namespace FinalProgram
         {
           foreach (var detalle in _detallesVenta)
           {
-            Program.ProductoService.VenderProducto(detalle.Producto.Id, detalle.Cantidad);
+            Program.ServicioProductos.VenderProducto(detalle.Producto.Id, detalle.Cantidad);
           }
 
           // Mostrar ticket

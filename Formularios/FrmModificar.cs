@@ -1,7 +1,9 @@
 using System;
 using System.Windows.Forms;
+using FinalProgram.Modelos;
+using FinalProgram.Servicios;
 
-namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   public partial class FrmModificar : Form
   {
@@ -22,7 +24,7 @@ namespace FinalProgram
           return;
         }
 
-        var producto = Program.ProductoService.ObtenerPorId(id);
+        var producto = Program.ServicioProductos.ObtenerProductoPorId(id);
         if (producto == null)
         {
           MessageBox.Show("Producto no encontrado");
@@ -33,7 +35,7 @@ namespace FinalProgram
         producto.Precio = decimal.Parse(txtPrecio.Text);
         producto.Stock = int.Parse(txtStock.Text);
 
-        Program.ProductoService.ActualizarProducto(producto);
+        Program.ServicioProductos.ActualizarProducto(producto);
         MessageBox.Show("Producto actualizado correctamente");
         this.Close();
       }

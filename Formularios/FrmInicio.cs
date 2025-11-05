@@ -1,14 +1,14 @@
 using System;
 using System.Windows.Forms;
 
-namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   public partial class FrmInicio : Form
   {
     public FrmInicio()
     {
       InitializeComponent();
-      
+
       // Conectar eventos
       btnAgregar.Click += btnAgregar_Click;
       btnListar.Click += btnListar_Click;

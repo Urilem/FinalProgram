@@ -1,4 +1,4 @@
-namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   partial class FrmTicket
   {

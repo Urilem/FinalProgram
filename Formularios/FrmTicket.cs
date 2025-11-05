@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using FinalProgram.Modelos;
 
-namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   public partial class FrmTicket : Form
   {

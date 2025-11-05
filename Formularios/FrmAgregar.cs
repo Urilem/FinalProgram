@@ -1,7 +1,9 @@
 using System;
 using System.Windows.Forms;
+using FinalProgram.Modelos;
+using FinalProgram.Servicios;
 
-namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   public partial class FrmAgregar : Form
   {
@@ -42,7 +44,7 @@ namespace FinalProgram
         };
 
         // Usar el servicio global
-        Program.ProductoService.AgregarProducto(producto);
+        Program.ServicioProductos.AgregarProducto(producto);
 
         MessageBox.Show("Producto agregado correctamente");
         this.Close();

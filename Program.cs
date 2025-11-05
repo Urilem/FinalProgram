@@ -7,6 +7,7 @@ namespace FinalProgram
 {
   internal static class Program
   {
+    // Cambiar a las propiedades estáticas que los formularios necesitan
     public static ServicioProductos ServicioProductos { get; private set; }
     public static ServicioVentas ServicioVentas { get; private set; }
 

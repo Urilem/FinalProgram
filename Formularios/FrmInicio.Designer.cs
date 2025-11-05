@@ -1,6 +1,7 @@
 using System.Windows.Forms;
 using System.Drawing;
-﻿namespace FinalProgram
+
+namespace FinalProgram.Formularios
 {
   partial class FrmInicio
   {

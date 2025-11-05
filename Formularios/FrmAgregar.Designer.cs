@@ -1,6 +1,7 @@
-using System.Windows.Forms;
 using System.Drawing;
-﻿namespace FinalProgram
+using System.Windows.Forms;
+
+namespace FinalProgram.Formularios
 {
   partial class FrmAgregar
   {

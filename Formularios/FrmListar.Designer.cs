@@ -1,6 +1,6 @@
 using System.Windows.Forms;
 using System.Drawing;
-﻿namespace FinalProgram
+namespace FinalProgram.Formularios
 {
   partial class FrmListar
   {
@@ -17,7 +17,7 @@ using System.Drawing;
     {
       if (disposing && (components != null))
       {
-          components.Dispose();
+        components.Dispose();
       }
       base.Dispose(disposing);
     }
