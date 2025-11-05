@@ -13,12 +13,12 @@ namespace FinalProgram
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      
+
       // Instanciar directamente el repositorio SQL
       IProductoRepository repository = new ProductoRepositorySQL();
       ProductoService = new ProductoService(repository);
-      
+
       Application.Run(new FrmInicio());
     }
-  } 
+  }
 }
